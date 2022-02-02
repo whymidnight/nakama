@@ -15,6 +15,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
+import {Injector} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -113,6 +114,11 @@ import {GroupMembersComponent} from "./group/members/groupMembers.component";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
 
+export let InjectorInstance: Injector;
+
+export class AppModule {
+  constructor(private injector: Injector) {
+    InjectorInstance = this.injector;
+  }
 }
